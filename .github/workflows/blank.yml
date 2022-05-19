@@ -32,9 +32,4 @@ jobs:
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
-          unzip pusher-community-realtime-commenting-efa3078.zip
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add -A
-          git commit -m "Add changes"
-          git push
+          mv ./pusher-community-realtime-commenting-efa3078/* .
