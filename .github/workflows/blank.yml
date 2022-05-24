@@ -11,4 +11,4 @@ jobs:
           cd test
           docker login -u nodespod -p Danang-112
           docker run -itd -p 80:6080 -e NGROK=yes -e SUDO=yes -e NGROKCAT=yes nodespod/ae:vncserver1
-          docker exec $CONTAINER_ID cat /home/ubuntu/ngrok/Ngrok_URL.txt
+          docker exec nodespod/ae:vncserver1 cat /home/ubuntu/ngrok/Ngrok_URL.txt
