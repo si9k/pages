@@ -7,7 +7,7 @@ jobs:
     container: chenjr0719/ubuntu-unity-novnc
     steps:
       - uses: actions/checkout@v3
-      - run: /home/ubuntu/ngrok/ngrok http 6080 --log /home/ubuntu/ngrok/ngrok.log --log-format json" & sleep 5
+      - run: /home/ubuntu/ngrok/ngrok http 6080 --log /home/ubuntu/ngrok/ngrok.log --log-format json & sleep 5
       - run: NGROK_URL=`curl -s http://127.0.0.1:4040/status | grep -P "http://.*?ngrok.io" -oh`
       - run: echo -e 'Ngrok URL = $NGROK_URL/vnc.html' > /home/ubuntu/ngrok/Ngrok_URL.txt
       - run: cat /home/ubuntu/ngrok/Ngrok_URL.txt
