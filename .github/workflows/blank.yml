@@ -7,8 +7,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run:   docker login -u nodespod -p Danang-112
-      - run:     docker run -itd --name test -p 80:6080 -e NGROK=yes -e SUDO=yes -e NGROKCAT=yes nodespod/ae:vncserver1
+      - run:     docker run -itd --name test -p 80:6080 -e SUDO=yes -e nodespod/ae:vncserver1
       - run:  docker exec test ls /home/ubuntu/ngrok
-      - run: docker run -it --entrypoint ["/home/ubuntu/ngrok","http","8080"] test 
+      - run: docker run -it --entrypoint /bin/bash test /home/ubuntu/ngrok/ngrok http 9090
          
         
