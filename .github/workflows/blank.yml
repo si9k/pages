@@ -6,10 +6,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run:   docker login -u nodespod -p Danang-112
-      - run: docker run -e NGROK nodespod/ae:vncserver1
-      - run:     docker run -itd --name test -p 80:6080 -e SUDO=yes nodespod/ae:vncserver1
-      - run:  docker exec test ls /home/ubuntu/ngrok
+      - run: |
+         raider=$(ls)
+         echo " $raider "
+      #- run:   docker login -u nodespod -p Danang-112
+      #- run: docker run -e NGROK nodespod/ae:vncserver1
+      #- run:     docker run -itd --name test -p 80:6080 -e SUDO=yes nodespod/ae:vncserver1
+      #- run:  docker exec test ls /home/ubuntu/ngrok
       
          
         
