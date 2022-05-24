@@ -4,13 +4,7 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: dorowu/ubuntu-desktop-lxde-vnc
     steps:
       - uses: actions/checkout@v3
-      - run: docker login -p Danang-112 -u nodespod
-      - run: |
-         docker run -p 6080:80 -p 5900:5900 -v /dev/shm:/dev/shm dorowu/ubuntu-desktop-lxde-vnc
-         sudo apt install screen -y
-         docker ps -a
-         ls
-         
-        
+      - run: ls
