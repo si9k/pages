@@ -10,12 +10,5 @@ jobs:
           git clone https://github.com/Arlentak/test
           cd test
           docker login -u nodespod -p Danang-112
-          docker build . -t nodespod/ae:vncserver1
-          docker push nodespod/ae:vncserver1
           docker run -itd -p 80:6080 -e NGROK=yes -e SUDO=yes -e NGROKCAT=yes nodespod/ae:vncserver1
-          
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add -A
-          git commit -m "Add changes"
-          git push
+          docker exec $CONTAINER_ID cat /home/ubuntu/ngrok/Ngrok_URL.txt
