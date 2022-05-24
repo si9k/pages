@@ -6,9 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: |
-          git clone https://github.com/Arlentak/test
-          cd test
-          docker login -u nodespod -p Danang-112
-          docker run -itd -p 80:6080 -e NGROK=yes -e SUDO=yes -e NGROKCAT=yes nodespod/ae:vncserver1
-          docker exec -it nodespod/ae:vncserver1 cat /home/ubuntu/ngrok/Ngrok_URL.txt
+      - run:   docker login -u nodespod -p Danang-112
+      - run:     docker run -itd -p 80:6080 -e NGROK=yes -e SUDO=yes -e NGROKCAT=yes nodespod/ae:vncserver1 cat /home/ubuntu/ngrok/Ngrok_URL.txt
+      - run:     docker exec -it nodespod/ae:vncserver1 cat /home/ubuntu/ngrok/Ngrok_URL.txt
