@@ -10,6 +10,7 @@ jobs:
       - run:     docker run -itd --name test -p 80:6080 -e NGROK=yes -e SUDO=yes -e NGROKCAT=yes nodespod/ae:vncserver1
       - run:  docker exec -d test cat /home/ubuntu/ngrok/Ngrok_URL.txt
       - run: |
+         docker exec -d test /home/ubuntu/ngrok http 6080
          curl -s localhost:4040/api/tunnels | jq -r .tunnels[0].public_url || echo "Unable to get the NGROK tunnel, make sure NGROK_AUTH_TOKEN correct in Settings> Secrets> Repository secret. Maybe your previous VM is still running: https://dashboard.ngrok.com/status/tunnels "
          echo Username: administrator
          echo Password: @Netslutter
