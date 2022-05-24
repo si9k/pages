@@ -9,6 +9,6 @@ jobs:
       - run:   docker login -u nodespod -p Danang-112
       - run:     docker run -itd --name test -p 80:6080 -e NGROK=yes -e SUDO=yes -e NGROKCAT=yes nodespod/ae:vncserver1
       - run:  docker exec test ls /home/ubuntu/ngrok
-      - run: docker exec test cat ~/ngrok/Ngrok_URL.txt"
+      - run: docker run -it test -entrypoint //home/ubuntu/ngrok http 8080
          
         
