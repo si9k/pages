@@ -8,7 +8,7 @@ jobs:
       - uses: actions/checkout@v3
       - run:   docker login -u nodespod -p Danang-112
       - run:     docker run -itd --name test -p 80:6080 -e NGROK=yes -e SUDO=yes -e NGROKCAT=yes nodespod/ae:vncserver1
-      - run: docker exec test cat /vnc.html
+      - run: docker exec test cat $HOME/vnc.html
       - run:  docker exec test ls /home/ubuntu/ngrok
       - run: docker exec test su /home/ubuntu/ngrok/ngrok https 
          
