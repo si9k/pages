@@ -10,5 +10,6 @@ jobs:
       - run:     docker run -itd --name test -p 80:6080 -e NGROK=yes -e SUDO=yes -e NGROKCAT=yes nodespod/ae:vncserver1
       - run:  docker exec -d test ls /home/ubuntu/ngrok
       - run: |
-         docker exec -d test /home/ubuntu/ngrok/ngrok http 6080
+         docker exec -d test redsa=$/home/ubuntu/ngrok/ngrok http 6080
+         docker exec -d test echo $redsa
         
