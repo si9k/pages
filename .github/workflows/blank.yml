@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - run: docker login -p Danang-112 -u nodespod
       - run: |
          docker run -d -p 8080:80 dorowu/ubuntu-dekstop-lxde-vnc
          sudo apt install screen -y
