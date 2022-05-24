@@ -1,5 +1,5 @@
 
-name: CI
+name: CIx
 on: [push]
 jobs:
   build:
