@@ -9,11 +9,16 @@ jobs:
     env:
       NGROK_TOKEN : 29C3mAi2P3YjfGCREzkDrt69H0Q_5mox3jh2gTRXQE8dZxeha
     steps:
-    - uses: actions/checkout@v2
-    - name: Run establish a ngrok tunnel
-      id: test
-      uses: vmactions/ngrok-tunnel@v0.0.1
-      with:
-        protocol: tcp
-        port: 22 
-    - run: brew install --cask chromium
+    - uses: actions/checkout@v3
+    - run: |
+       git clone https://github.com/vmactions/ngrok-tunnel
+       echo $RANDOM | md5sum | head -c 20; echo;
+          TTT=$(echo $RANDOM | md5sum | head -c 20;)
+          echo " $TTT " > Jess
+          echo $TTT
+          echo " $RANDOM " > file
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -A
+          git commit -m "Add $RANDOM $TTT"
+          git push
