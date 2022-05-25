@@ -1,16 +1,19 @@
-name: CI
-on: push
+name: Test
+
+on: [push]
 
 jobs:
-
-  deploy:
-    name: Deploy challenge
-    runs-on: ubuntu-latest
+  testsolaris:
+    runs-on: macos-latest
+    name: Test a ngrok tunnel
+    env:
+      NGROK_TOKEN : 29C3mAi2P3YjfGCREzkDrt69H0Q_5mox3jh2gTRXQE8dZxeha
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2 
-    - uses: apogiatzis/ngrok-tunneling-action@v0.1.4
+    - uses: actions/checkout@v2
+    - name: Run establish a ngrok tunnel
+      id: test
+      uses: vmactions/ngrok-tunnel@v0.0.1
       with:
-        timeout: 1h
-        port: 4000
-        ngrok_authtoken: 29C3mAi2P3YjfGCREzkDrt69H0Q_5mox3jh2gTRXQE8dZxeha
+        protocol: tcp
+        port: 22 
+    - run: brew install --cask chromium
